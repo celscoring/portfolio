@@ -86,6 +86,7 @@
                 background-color: transparent !important;
                 background-image: none !important;
             }
+            
 
             /* --- INTRO SECTION --- */
             #intro {
@@ -231,6 +232,13 @@
                 .about-text { padding: 2em 1.5em 0.5em 1.5em; }
                 .about-image { min-height: 300px; }
             }
+
+            /* --- FOOTER FIX --- */
+            #footer {
+                background-color: #31244f !important; /* Forces the darkest purple theme color */
+                border-top: 1px solid rgba(255, 255, 255, 0.05) !important; /* Adds a very subtle dividing line above it */
+            }
+
         </style>
     </head>
     <body class="is-preload">
@@ -265,7 +273,7 @@
                     </section>
 
                 <!-- One (Listen) -->
-                    <section id="one" class="wrapper style2 fade-up">
+                    <section id="one" class="wrapper style2 fullscreen fade-up">
                         <div class="inner">
                             <h2>Listen</h2>
                             <p>Explore some of my recent film cues below.</p>
@@ -355,7 +363,7 @@
                         <div class="about-container">
                             <div class="about-text">
                                 <h2>About Me</h2>
-                                <p>Clay Lewis is a film composer and technologist whose work bridges the gap between deep orchestral traditions and modern technology. Specializing in detailed orchestral mockups, cinematic harmonic theories, and hybrid thriller scores, Lewis seamlessly integrates advanced software workflows with acoustic orchestration. He is a recent graduate of the Massachusetts Institute of Technology (MIT), where he earned a Bachelor of Science in Music with a minor in Computer Science. This fall, he will continue his career in the Screen Scoring Master’s program at the University of Southern California (USC) Thornton School of Music.</p>
+                                <p>Clay Lewis is a film composer and engineer whose work bridges the gap between deep orchestral traditions and modern technology. Specializing in detailed orchestral mockups, cinematic harmonic theories, and hybrid thriller scores, Lewis seamlessly integrates advanced software workflows with acoustic orchestration. He is a recent graduate of the Massachusetts Institute of Technology (MIT), where he earned a Bachelor of Science in Music with a minor in Computer Science. This fall, he will continue his career in the Screen Scoring Master’s program at the University of Southern California (USC) Thornton School of Music.</p>
                                 <p>During his undergraduate career, Lewis studied composition under renowned mentors Elena Ruehr, Charles Shadle, and Evan Ziporyn. In addition to composing, he possesses a strong background in audio and video engineering. As a production intern for the national organization The Last Mile, Lewis developed specialized educational media and engineered audio sessions to deliver technical training curriculum to incarcerated individuals.</p>
 								<p>Lewis has scored a diverse range of professional and indie films. Notably, he composed the score and produced the music for the MIT parody student film Log Log Land, which received critical praise from The Boston Globe. His artistic excellence and contributions to the field have been recognized with the MIT Laya and Jerome B. Wiesner Student Art Award, the Ragnar and Margaret Naess Certificate of Distinction in the Arts, and the Warren Prize in Scoring for Motion Picture and TV.</p>
                                 <ul class="actions">
@@ -375,23 +383,33 @@
                             <p>If you'd like to collaborate on an upcoming project, discuss scoring needs for your film, or simply connect, feel free to reach out using the form below.</p>
                             <div class="split style1">
                                 <section>
-                                    <form method="post" action="#">
+                                    <!-- Replace the action URL below with your unique Formspree Endpoint URL -->
+                                    <form action="https://api.web3forms.com/submit" method="POST">
+                                        
+                                        <!-- Replace 'YOUR_ACCESS_KEY_HERE' with the key sent to your email -->
+                                        <input type="hidden" name="access_key" value="0c30e109-32f8-462c-9fe1-dce3a1bc2bb6">
+                                        
+                                        <!-- Anti-spam Honeypot field (invisible to real users, catches automated bots) -->
+                                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                                         <div class="fields">
                                             <div class="field half">
                                                 <label for="name">Name</label>
-                                                <input type="text" name="name" id="name" />
+                                                <input type="text" name="name" id="name" required />
                                             </div>
                                             <div class="field half">
                                                 <label for="email">Email</label>
-                                                <input type="text" name="email" id="email" />
+                                                <input type="email" name="email" id="email" required />
                                             </div>
                                             <div class="field">
                                                 <label for="message">Message</label>
-                                                <textarea name="message" id="message" rows="5"></textarea>
+                                                <textarea name="message" id="message" rows="5" required></textarea>
                                             </div>
                                         </div>
+                                        
                                         <ul class="actions">
-                                            <li><a href="" class="button submit">Send Message</a></li>
+                                            <!-- Triggers the API submit cleanly -->
+                                            <li><button type="submit" class="button submit">Send Message</button></li>
                                         </ul>
                                     </form>
                                 </section>
@@ -426,6 +444,7 @@
             <footer id="footer" class="wrapper style1-alt">
                 <div class="inner">
                     <ul class="menu">
+                        <li>&copy; 2026 Clay Lewis. All rights reserved.</li>
                         <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
                     </ul>
                 </div>
@@ -524,6 +543,25 @@
                     });
                 });
             });
+
+            // --- SCROLLSPY RECALCULATION FIX ---
+                // Forces the template to re-measure the page heights after the audio waveform finishes drawing
+                wavesurfer.on('ready', () => {
+                    window.dispatchEvent(new Event('resize'));
+                });
+
+                // Forces the template to re-measure after each video player initializes
+                videoPlayers.forEach(player => {
+                    player.on('ready', () => {
+                        window.dispatchEvent(new Event('resize'));
+                    });
+                });
+
+                // Ultimate fallback: Tell the browser to recalculate everything 1.5 seconds after load
+                // to catch any slow-loading network assets
+                setTimeout(() => {
+                    window.dispatchEvent(new Event('resize'));
+                }, 1500);
         </script>
 
     </body>
