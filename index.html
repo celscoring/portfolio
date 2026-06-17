@@ -22,6 +22,66 @@
                 background-image: linear-gradient(to bottom, #5152b5, #2f2052) !important;
             }
 
+            /* --- ULTRAWIDE MONITOR FIX --- */
+            #wrapper > section:not(#intro) > .inner {
+                max-width: 1600px !important; /* Limits how wide the content can stretch */
+                width: 100% !important; 
+                box-sizing: border-box !important;
+                margin-left: auto !important; /* Pushes the container inward from the left */
+                margin-right: auto !important; /* Pushes inward from the right, centering it */
+            }
+
+            /* Forces the flexbox container to allow the audio canvas to shrink on mobile */
+            #waveform {
+                min-width: 0 !important;
+            }
+
+            /* --- MOBILE NAVIGATION FIX --- */
+            /* Forces the navigation menu to stay visible on small screens */
+            @media screen and (max-width: 736px) {
+                #sidebar {
+                    display: block !important;
+                    position: relative !important;
+                    height: auto !important;
+                    padding: 1.5em 0 !important;
+                    background-color: #31244f !important; /* Matches your dark purple theme */
+                }
+                
+                #sidebar nav ul {
+                    display: flex !important;
+                    flex-wrap: wrap !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+                    margin: 0 !important;
+                    padding: 0 1em !important;
+                    gap: 0.5em 1.5em !important; /* Adds spacing between the links */
+                }
+                
+                #sidebar nav ul li {
+                    padding: 0 !important;
+                    border: none !important;
+                    display: block !important;
+                }
+                
+                #sidebar nav ul li a {
+                    font-size: 0.8rem !important; /* Slightly smaller to fit beautifully on mobile */
+                    padding: 0.25em !important;
+                }
+                
+                /* Hides the template's default hamburger toggle to prevent duplicates */
+                #titleBar {
+                    display: none !important;
+                }
+            }
+
+            /* --- SIDEBAR TEXT SIZE FIX --- */
+            /* Increases the legibility of the navigation menu */
+            #sidebar nav ul li a {
+                font-size: 0.85rem !important; /* Bumps up the base text size */
+                letter-spacing: 0.2em !important; /* Keeps the spaced-out, cinematic look */
+                font-weight: bold !important; 
+            }
+
             #one, #two, #three, #four {
                 background-color: transparent !important;
                 background-image: none !important;
