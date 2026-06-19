@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-    Hyperspace by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
     <head>
         <title>Clay Lewis - Film Composer</title>
@@ -12,7 +7,6 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         
-        <!-- Plyr Video Player CSS -->
         <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 
         <style>
@@ -24,11 +18,11 @@
 
             /* --- ULTRAWIDE MONITOR FIX --- */
             #wrapper > section:not(#intro) > .inner {
-                max-width: 1600px !important; /* Limits how wide the content can stretch */
+                max-width: 1600px !important; 
                 width: 100% !important; 
                 box-sizing: border-box !important;
-                margin-left: auto !important; /* Pushes the container inward from the left */
-                margin-right: auto !important; /* Pushes inward from the right, centering it */
+                margin-left: auto !important; 
+                margin-right: auto !important; 
             }
 
             /* Forces the flexbox container to allow the audio canvas to shrink on mobile */
@@ -37,14 +31,13 @@
             }
 
             /* --- MOBILE NAVIGATION FIX --- */
-            /* Forces the navigation menu to stay visible on small screens */
             @media screen and (max-width: 736px) {
                 #sidebar {
                     display: block !important;
                     position: relative !important;
                     height: auto !important;
                     padding: 1.5em 0 !important;
-                    background-color: #31244f !important; /* Matches your dark purple theme */
+                    background-color: #31244f !important; 
                 }
                 
                 #sidebar nav ul {
@@ -54,7 +47,7 @@
                     align-items: center !important;
                     margin: 0 !important;
                     padding: 0 1em !important;
-                    gap: 0.5em 1.5em !important; /* Adds spacing between the links */
+                    gap: 0.5em 1.5em !important; 
                 }
                 
                 #sidebar nav ul li {
@@ -64,21 +57,19 @@
                 }
                 
                 #sidebar nav ul li a {
-                    font-size: 0.8rem !important; /* Slightly smaller to fit beautifully on mobile */
+                    font-size: 0.8rem !important; 
                     padding: 0.25em !important;
                 }
                 
-                /* Hides the template's default hamburger toggle to prevent duplicates */
                 #titleBar {
                     display: none !important;
                 }
             }
 
             /* --- SIDEBAR TEXT SIZE FIX --- */
-            /* Increases the legibility of the navigation menu */
             #sidebar nav ul li a {
-                font-size: 0.85rem !important; /* Bumps up the base text size */
-                letter-spacing: 0.2em !important; /* Keeps the spaced-out, cinematic look */
+                font-size: 0.85rem !important; 
+                letter-spacing: 0.2em !important; 
                 font-weight: bold !important; 
             }
 
@@ -86,7 +77,6 @@
                 background-color: transparent !important;
                 background-image: none !important;
             }
-            
 
             /* --- INTRO SECTION --- */
             #intro {
@@ -126,53 +116,83 @@
                 background-color: rgba(255, 255, 255, 0.2) !important;
             }
 
-            /* --- CUSTOM VIDEO GRID & HOVER EFFECTS --- */
+            /* --- WATCH SECTION SINGLE VIDEO GALLERY --- */
             :root {
                 --plyr-color-main: #5ba4e5; /* Match your light blue */
             }
 
-            /* Edge-to-edge grid container */
-            .video-container {
-                display: flex;
-                flex-wrap: wrap;
+            .video-gallery {
+                background: rgba(0, 0, 0, 0.25); 
+                border-radius: 8px;
+                padding: 2em;
+                margin-top: 2em;
                 width: 100%;
             }
 
-            .video-item {
+            .gallery-screen {
                 position: relative;
-                flex: 0 0 50%; /* Strictly takes up exactly 50% of screen width on desktop */
-                max-width: 50%;
-                box-sizing: border-box;
-                background: #000; /* Seamless dark backing */
-                display: block; 
+                border-radius: 4px;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.5); 
+                background: #000;
             }
 
-            /* Removes rounded corners for flush edges */
+            .video-slide {
+                display: none; 
+                width: 100%;
+            }
+
+            .video-slide.active {
+                display: block; 
+                animation: fadeIn 0.4s ease-in-out;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+
+            .gallery-controls {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 1.5em;
+            }
+
+            .gallery-btn {
+                background: transparent !important;
+                border: 1px solid rgba(255, 255, 255, 0.25) !important;
+                color: #fff !important;
+                padding: 0 1.5em !important;
+                height: 3em !important;
+                line-height: 3em !important;
+                border-radius: 4px !important;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                gap: 0.5em;
+            }
+
+            .gallery-btn:hover {
+                background: rgba(255, 255, 255, 0.1) !important;
+                border-color: #5ba4e5 !important;
+                color: #5ba4e5 !important;
+            }
+
+            @media screen and (max-width: 736px) {
+                .video-gallery { padding: 1em; }
+                .gallery-controls { flex-direction: column; gap: 1em; text-align: center; }
+                .gallery-btn { width: 100%; justify-content: center; }
+                .gallery-info { order: -1; margin-bottom: 0.5em; } 
+            }
+
+            /* --- BULLETPROOF PLYR CSS RESET --- */
             .plyr {
                 border-radius: 0 !important;
                 width: 100% !important;
             }
 
-            /* Video Info Hover Overlay */
-            .video-info {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                padding: 1.5em;
-                background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-                opacity: 0;
-                transition: opacity 0.3s ease-in-out;
-                z-index: 10;
-                pointer-events: none; /* Allows mouse clicks to pass through to the video controls */
-            }
-
-            .video-item:hover .video-info {
-                opacity: 1;
-            }
-
-            /* --- BULLETPROOF PLYR CSS RESET --- */
-            /* Prevents the Hyperspace template from stretching the video controls */
             .plyr button {
                 height: auto !important;
                 line-height: inherit !important;
@@ -184,67 +204,111 @@
                 font-weight: normal !important;
             }
 
-            /* Fixes the control bar buttons (Play, Mute, Settings, Fullscreen) */
             .plyr__controls button {
                 padding: 6px !important; 
-                border-radius: 4px !important; /* Makes them square-ish instead of wide pills */
+                border-radius: 4px !important; 
             }
 
-            /* Fixes the Big Center Play Button to be a perfect circle */
             .plyr__control--overlaid {
-                padding: 1.25em !important; /* Even padding all around creates the circle */
-                border-radius: 50% !important; /* Forces a perfect circle */
+                padding: 1.25em !important; 
+                border-radius: 50% !important; 
                 background: var(--plyr-color-main) !important;
             }
 
             .plyr__control--overlaid svg {
-                left: 2px; /* Slight optical adjustment so the play triangle looks perfectly centered */
+                left: 2px; 
                 position: relative;
             }
 
             /* --- FULL BLEED ABOUT SECTION LAYOUT --- */
+            .about-header {
+                padding: 4.5em 5em 1em 5em;
+                width: 100%;
+                max-width: 1600px;
+                margin-left: auto;
+                margin-right: auto;
+                box-sizing: border-box;
+            }
+
+            .about-header h2 {
+                margin-bottom: 0; 
+            }
+
             .about-container {
                 display: flex;
                 flex-wrap: wrap;
                 align-items: stretch;
+                max-width: 1600px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .about-text {
                 flex: 1 1 50%;
-                padding: 4.5em 5em 2.5em 5em;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+                padding: 0 5em 0 5em; 
+                display: block; 
+            }
+
+            .about-text p:last-child {
+                margin-bottom: 0; 
             }
 
             .about-image {
                 flex: 1 1 50%;
-                min-height: 400px;
+                position: relative; 
+                min-height: 400px; 
+            }
+
+            .about-image img {
+                position: absolute !important;
+                top: 0;
+                left: 0;
+                width: calc(100% - 5em) !important; 
+                height: 100% !important;
+                object-fit: cover !important;
+                object-position: center 15% !important; 
+            }
+
+            .about-bottom-text {
+                padding: 2em 5em 4.5em 5em; 
+                width: 100%;
+                max-width: 1600px;
+                margin-left: auto;
+                margin-right: auto;
+                box-sizing: border-box;
+            }
+            
+            .about-bottom-text p {
+                max-width: 1400px; 
             }
 
             /* Responsive padding and stacking for smaller screens */
             @media screen and (max-width: 980px) {
-                .about-text { padding: 3em 3em 1em 3em; }
+                .about-header { padding: 3em 3em 1em 3em; }
+                .about-text { padding: 0 3em 0 3em; }
+                .about-image img { width: calc(100% - 3em) !important; } 
+                .about-bottom-text { padding: 2em 3em 3em 3em; }
             }
 
             @media screen and (max-width: 736px) {
-                .video-item { flex: 0 0 100%; max-width: 100%; }
-                .about-text { padding: 2em 1.5em 0.5em 1.5em; }
-                .about-image { min-height: 300px; }
+                .about-header { padding: 2em 1.5em 1em 1.5em; }
+                .about-text { flex: 0 0 100%; max-width: 100%; padding: 0 1.5em 2em 1.5em; }
+                .about-image { flex: 0 0 100%; max-width: 100%; min-height: 350px; padding: 0 1.5em; box-sizing: border-box; } 
+                .about-image img { position: relative !important; width: 100% !important; height: 350px !important; }
+                .about-bottom-text { padding: 0 1.5em 2em 1.5em; }
             }
 
             /* --- FOOTER FIX --- */
             #footer {
-                background-color: #31244f !important; /* Forces the darkest purple theme color */
-                border-top: 1px solid rgba(255, 255, 255, 0.05) !important; /* Adds a very subtle dividing line above it */
+                background-color: #31244f !important; 
+                border-top: 1px solid rgba(255, 255, 255, 0.05) !important; 
             }
 
         </style>
     </head>
     <body class="is-preload">
 
-        <!-- Sidebar -->
-            <section id="sidebar">
+        <section id="sidebar">
                 <div class="inner">
                     <nav>
                         <ul>
@@ -258,11 +322,9 @@
                 </div>
             </section>
 
-        <!-- Wrapper -->
-            <div id="wrapper">
+        <div id="wrapper">
 
-                <!-- Intro -->
-                    <section id="intro" class="wrapper style1 fullscreen fade-up">
+                <section id="intro" class="wrapper style1 fullscreen fade-up">
                         <div class="inner">
                             <h1 style="font-size: 5em; font-weight: bold; letter-spacing: 0.05em; margin-bottom: 0.25em;">Clay Lewis</h1>
                             <p style="font-size: 2em; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.65);">Film Composer</p>
@@ -272,13 +334,11 @@
                         </div>
                     </section>
 
-                <!-- One (Listen) -->
-                    <section id="one" class="wrapper style2 fullscreen fade-up">
+                <section id="one" class="wrapper style2 fullscreen fade-up">
                         <div class="inner">
                             <h2>Listen</h2>
                             <p>Explore some of my recent film cues below.</p>
                             
-                            <!-- Custom Player Container -->
                             <div class="custom-player" style="background: rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 2em; margin-top: 2em;">
                                 <div style="display: flex; align-items: center; gap: 2em; margin-bottom: 2em;">
                                     <button id="main-play-btn" style="flex-shrink: 0; width: 64px; height: 64px; padding: 0; border-radius: 50%; background: #5ba4e5; color: white; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); outline: none;">
@@ -287,7 +347,6 @@
                                     <div id="waveform" style="flex-grow: 1; cursor: pointer;"></div>
                                 </div>
 
-                                <!-- Tracklist -->
                                 <ul id="tracklist" style="list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                     <li data-url="audio/love.wav" style="padding: 1.25em 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
                                         <span class="track-title" style="color: #5ba4e5; font-weight: bold;">Reminiscing in F (Orchestra, Family)</span>
@@ -307,89 +366,86 @@
                     </section>
 
                 <!-- Two (Watch) -->
-                    <section id="two" class="wrapper style1 fade-up" style="padding-bottom: 0;">
-                        <div class="inner" style="padding-bottom: 2em;">
+                    <section id="two" class="wrapper style1 fullscreen fade-up">
+                        <div class="inner">
                             <h2>Watch</h2>
                             <p>A selection of my recent scoring to picture, including rescores and original film projects.</p>
-                        </div>
-                        
-                        <!-- Video Grid Container -->
-                        <div class="video-container">
                             
-                            <!-- Video 1 -->
-                            <div class="video-item">
-                                <video class="custom-video-player" playsinline controls>
-                                    <source src="video/sos.mp4" type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-info">
-                                    <h3 style="margin: 0; font-size: 1.25em; font-weight: bold; color: #fff;">A Second of Sight</h3>
-                                    <p style="margin: 0; font-size: 0.85em; color: rgba(255, 255, 255, 0.8); margin-top: 0.25em;">MIT Student Film</p>
+                            <!-- Unified Gallery Container -->
+                            <div class="video-gallery">
+                                <!-- Main Video Display -->
+                                <div class="gallery-screen">
+                                    <!-- Video 1 (Now Harmony Rescore) -->
+                                    <div class="video-slide active" data-title="Harmony Rescore" data-desc="Animated short by ESMA">
+                                        <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="Z6DG4o8NN6A"></div>
+                                    </div>
+                                    <!-- Video 2 (Oryctes) -->
+                                    <div class="video-slide" data-title="Oryctes Rescore" data-desc="Animated Short by Glow Production">
+                                        <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="shYIh4Boj-s"></div>
+                                    </div>
+                                    <!-- Video 3 (Compass Course) -->
+                                    <div class="video-slide" data-title="MIT Compass Course" data-desc="MIT Documentary Short Film">
+                                        <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="QkbwtoR4350"></div>
+                                    </div>
+                                    <!-- Video 4 (Now A Second of Sight) -->
+                                    <div class="video-slide" data-title="A Second of Sight" data-desc="MIT Student Film">
+                                        <video class="custom-video-player" playsinline controls>
+                                            <source src="video/sos.mp4" type="video/mp4" />
+                                        </video>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slider Controls -->
+                                <div class="gallery-controls">
+                                    <button id="gallery-prev" class="gallery-btn"><span class="icon solid fa-chevron-left"></span> Previous</button>
+                                    
+                                    <!-- Updated default text to match Harmony Rescore -->
+                                    <div class="gallery-info" style="text-align: center;">
+                                        <h3 id="gallery-title" style="margin: 0; color: #5ba4e5; font-weight: bold; font-size: 1.25em;">Harmony Rescore</h3>
+                                        <p id="gallery-desc" style="margin: 0; font-size: 0.85em; color: rgba(255, 255, 255, 0.65);">Animated short by ESMA</p>
+                                    </div>
+                                    
+                                    <button id="gallery-next" class="gallery-btn">Next <span class="icon solid fa-chevron-right"></span></button>
                                 </div>
                             </div>
-
-                            <!-- Video 2 -->
-                            <div class="video-item">
-                                <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="Z6DG4o8NN6A"></div>
-                                <div class="video-info">
-                                    <h3 style="margin: 0; font-size: 1.25em; font-weight: bold; color: #fff;">Harmony Rescore</h3>
-                                    <p style="margin: 0; font-size: 0.85em; color: rgba(255, 255, 255, 0.8); margin-top: 0.25em;">Animated short by ESMA</p>
-                                </div>
-                            </div>
-
-                            <!-- Video 3 -->
-                            <div class="video-item">
-                                <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="shYIh4Boj-s"></div>
-                                <div class="video-info">
-                                    <h3 style="margin: 0; font-size: 1.25em; font-weight: bold; color: #fff;">Oryctes Rescore</h3>
-                                    <p style="margin: 0; font-size: 0.85em; color: rgba(255, 255, 255, 0.8); margin-top: 0.25em;">Animated Short by Glow Production</p>
-                                </div>
-                            </div>
-
-                            <!-- Video 4 -->
-                            <div class="video-item">
-                                <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="QkbwtoR4350"></div>
-                                <div class="video-info">
-                                    <h3 style="margin: 0; font-size: 1.25em; font-weight: bold; color: #fff;">MIT Compass Course</h3>
-                                    <p style="margin: 0; font-size: 0.85em; color: rgba(255, 255, 255, 0.8); margin-top: 0.25em;">MIT Documentary Short Film</p>
-                                </div>
-                            </div>
-
+                            
                         </div>
                     </section>
 
-                <!-- Three (About) -->
-                    <section id="three" class="wrapper style3 fade-up" style="padding: 0;">
+                <section id="three" class="wrapper style3 fade-up" style="padding: 0;">
+                        
+                        <div class="about-header">
+                            <h2>About Me</h2>
+                        </div>
+
                         <div class="about-container">
                             <div class="about-text">
-                                <h2>About Me</h2>
                                 <p>Clay Lewis is a film composer and engineer whose work bridges the gap between deep orchestral traditions and modern technology. Drawn towards moving melodies and unique sonic worlds, Lewis seamlessly integrates advanced software workflows with acoustic orchestration. He is a recent graduate of the Massachusetts Institute of Technology (MIT), where he earned a Bachelor of Science in Music with a minor in Computer Science. This fall, he will continue his career in the Screen Scoring Master’s program at the University of Southern California (USC) Thornton School of Music.</p>
                                 <p>During his undergraduate career, Lewis studied composition under renowned mentors Elena Ruehr, Charles Shadle, and Evan Ziporyn. In addition to composing, he possesses a strong background in audio and video engineering. As a production intern for the national organization The Last Mile, Lewis developed specialized educational media and engineered audio sessions to deliver technical training curriculum to incarcerated individuals.</p>
-								<p>Lewis has scored a diverse range of professional and indie films. Notably, he composed the score and produced the music for the MIT parody student film Log Log Land, which received critical praise from The Boston Globe. His artistic excellence and contributions to the field have been recognized with the MIT Laya and Jerome B. Wiesner Student Art Award, the Ragnar and Margaret Naess Certificate of Distinction in the Arts, and the Warren Prize in Scoring for Motion Picture and TV.</p>
-                                <ul class="actions">
-                                    <li><a href="#four" class="button scrolly">Get in touch</a></li>
-                                </ul>
                             </div>
                             <div class="about-image">
-                                <img src="images/clay-perf.jpg" alt="About Me" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                                <img src="images/clay-headshot.jpeg" alt="About Me" />
                             </div>
                         </div>
+
+                        <div class="about-bottom-text">
+                            <p>Lewis has scored a diverse range of professional and indie films. Notably, he composed the score and produced the music for the MIT parody student film Log Log Land, which received critical praise from The Boston Globe. His artistic excellence and contributions to the field have been recognized with the MIT Laya and Jerome B. Wiesner Student Art Award, the Ragnar and Margaret Naess Certificate of Distinction in the Arts, and the Warren Prize in Scoring for Motion Picture and TV.</p>
+                            <ul class="actions">
+                                <li><a href="#four" class="button scrolly">Get in touch</a></li>
+                            </ul>
+                        </div>
+                        
                     </section>
 
-                <!-- Four (Contact) -->
-                    <section id="four" class="wrapper style1 fade-up">
+                <section id="four" class="wrapper style1 fade-up">
                         <div class="inner">
                             <h2>Contact</h2>
                             <p>If you'd like to collaborate on an upcoming project, discuss scoring needs for your film, or simply connect, feel free to reach out using the form below.</p>
                             <div class="split style1">
                                 <section>
-                                    <!-- Replace the action URL below with your unique Formspree Endpoint URL -->
                                     <form action="https://api.web3forms.com/submit" method="POST">
                                         
-                                        <!-- Replace 'YOUR_ACCESS_KEY_HERE' with the key sent to your email -->
                                         <input type="hidden" name="access_key" value="0c30e109-32f8-462c-9fe1-dce3a1bc2bb6">
-                                        
-                                        <!-- Anti-spam Honeypot field (invisible to real users, catches automated bots) -->
                                         <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                                         <div class="fields">
@@ -408,7 +464,6 @@
                                         </div>
                                         
                                         <ul class="actions">
-                                            <!-- Triggers the API submit cleanly -->
                                             <li><button type="submit" class="button submit">Send Message</button></li>
                                         </ul>
                                     </form>
@@ -440,8 +495,7 @@
 
             </div>
 
-        <!-- Footer -->
-            <footer id="footer" class="wrapper style1-alt">
+        <footer id="footer" class="wrapper style1-alt">
                 <div class="inner">
                     <ul class="menu">
                         <li>&copy; 2026 Clay Lewis. All rights reserved.</li>
@@ -450,8 +504,7 @@
                 </div>
             </footer>
 
-        <!-- Scripts -->
-            <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/jquery.scrollex.min.js"></script>
             <script src="assets/js/jquery.scrolly.min.js"></script>
             <script src="assets/js/browser.min.js"></script>
@@ -459,16 +512,13 @@
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
 
-        <!-- WaveSurfer library and Custom Audio Player Logic -->
         <script src="https://unpkg.com/wavesurfer.js@7"></script>
-        <!-- Plyr Video Player Library -->
         <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
         
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 
                 // --- VIDEO PLAYER INITIALIZATION ---
-                // Forces the 16:9 ratio globally to prevent weird stretching
                 const videoPlayers = Plyr.setup('.custom-video-player', {
                     ratio: '16:9'
                 });
@@ -476,8 +526,8 @@
                 // --- AUDIO PLAYER INITIALIZATION ---
                 const wavesurfer = WaveSurfer.create({
                     container: '#waveform',
-                    waveColor: 'rgba(255, 255, 255, 0.3)', // Color of the unplayed audio
-                    progressColor: '#5ba4e5',             // Updated to light blue
+                    waveColor: 'rgba(255, 255, 255, 0.3)', 
+                    progressColor: '#5ba4e5',             
                     cursorColor: 'transparent',
                     barWidth: 2,
                     barRadius: 3,
@@ -489,11 +539,11 @@
                 const playIcon = playBtn.querySelector('.icon');
                 const tracks = document.querySelectorAll('#tracklist li');
 
-                // 2. Load the first track by default
+                // Load the first track by default
                 let currentTrackUrl = tracks[0].getAttribute('data-url');
                 wavesurfer.load(currentTrackUrl);
 
-                // 3. Play/Pause Button Logic
+                // Play/Pause Button Logic
                 playBtn.addEventListener('click', () => {
                     wavesurfer.playPause();
                 });
@@ -511,57 +561,80 @@
                     playIcon.style.marginLeft = '4px'; 
                 });
 
-                // 4. Tracklist Click Logic
+                // Tracklist Click Logic
                 tracks.forEach(track => {
                     track.addEventListener('click', function() {
                         const newUrl = this.getAttribute('data-url');
                         
-                        // Don't reload if clicking the track that is already playing
                         if (newUrl === currentTrackUrl) {
                             wavesurfer.playPause();
                             return;
                         }
 
-                        // Reset text styles for all tracks
                         tracks.forEach(t => {
                             const title = t.querySelector('.track-title');
                             title.style.color = 'inherit';
                             title.style.fontWeight = 'normal';
                         });
                         
-                        // Highlight the clicked track
                         const clickedTitle = this.querySelector('.track-title');
-                        clickedTitle.style.color = '#5ba4e5'; // Updated to light blue
+                        clickedTitle.style.color = '#5ba4e5'; 
                         clickedTitle.style.fontWeight = 'bold';
                         
-                        // Load and play the new track
                         currentTrackUrl = newUrl;
                         wavesurfer.load(newUrl);
                         wavesurfer.on('ready', () => {
                             wavesurfer.play();
-                        }, { once: true }); // Use { once: true } so this event listener doesn't stack
+                        }, { once: true }); 
                     });
                 });
-            });
 
-            // --- SCROLLSPY RECALCULATION FIX ---
-                // Forces the template to re-measure the page heights after the audio waveform finishes drawing
+                // --- VIDEO GALLERY LOGIC ---
+                const slides = document.querySelectorAll('.video-slide');
+                const prevBtn = document.getElementById('gallery-prev');
+                const nextBtn = document.getElementById('gallery-next');
+                const titleEl = document.getElementById('gallery-title');
+                const descEl = document.getElementById('gallery-desc');
+                let currentSlide = 0;
+
+                function updateGallery(index) {
+                    videoPlayers.forEach(player => player.pause());
+
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    slides[index].classList.add('active');
+
+                    titleEl.innerText = slides[index].getAttribute('data-title');
+                    descEl.innerText = slides[index].getAttribute('data-desc');
+
+                    setTimeout(() => window.dispatchEvent(new Event('resize')), 100);
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    currentSlide = (currentSlide > 0) ? currentSlide - 1 : slides.length - 1;
+                    updateGallery(currentSlide);
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentSlide = (currentSlide < slides.length - 1) ? currentSlide + 1 : 0;
+                    updateGallery(currentSlide);
+                });
+
+                // --- SCROLLSPY RECALCULATION FIX ---
                 wavesurfer.on('ready', () => {
                     window.dispatchEvent(new Event('resize'));
                 });
 
-                // Forces the template to re-measure after each video player initializes
                 videoPlayers.forEach(player => {
                     player.on('ready', () => {
                         window.dispatchEvent(new Event('resize'));
                     });
                 });
 
-                // Ultimate fallback: Tell the browser to recalculate everything 1.5 seconds after load
-                // to catch any slow-loading network assets
                 setTimeout(() => {
                     window.dispatchEvent(new Event('resize'));
                 }, 1500);
+
+            });
         </script>
 
     </body>
