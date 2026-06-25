@@ -81,16 +81,20 @@
             /* --- INTRO SECTION --- */
             #intro {
                 background-color: #4b49a2 !important;
-                background-image: url('images/clay-mixer.JPG') !important; 
+                /* Stacks a dark shadow gradient on the left edge, fading to completely transparent by the middle of the screen */
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 60%), url('images/clay-mixer.JPG') !important; 
                 background-size: cover !important; 
                 background-position: center center !important; 
                 background-repeat: no-repeat !important; 
-                background-blend-mode: multiply !important; 
+                /* The gradient stays normal, while the image below it multiplies with the purple background color */
+                background-blend-mode: normal, multiply !important; 
             }
             
             #intro > .inner {
                 background: transparent !important; 
                 padding: 3em;
+                position: relative;
+                z-index: 2; /* Ensures the text strictly stays above the background layers */
             }
 
             /* --- SECTION DIVIDERS --- */
@@ -650,7 +654,7 @@
                 const tracks = document.querySelectorAll('#tracklist li.track-item');
 
                 // Load the first track by default
-                let currentTrackUrl = tracks[1].getAttribute('data-url');
+                let currentTrackUrl = tracks[0].getAttribute('data-url');
                 wavesurfer.load(currentTrackUrl);
 
                 // Play/Pause Button Logic
