@@ -116,9 +116,104 @@
                 background-color: rgba(255, 255, 255, 0.2) !important;
             }
 
+            /* --- AUDIO PLAYER UPGRADES --- */
+            /* Play Button Optical Alignment */
+            #main-play-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: transform 0.1s ease-in-out;
+            }
+            
+            #main-play-btn:active {
+                transform: scale(0.95);
+            }
+            
+            #main-play-btn .fa-play {
+                transform: translateX(3px); 
+            }
+            
+            #main-play-btn .fa-pause {
+                transform: translateX(1.5px); 
+            }
+
+            /* Vertical Volume Slider */
+            .volume-container {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                color: rgba(255, 255, 255, 0.7);
+                cursor: pointer;
+                transition: color 0.2s;
+            }
+            
+            .volume-container:hover {
+                color: #fff;
+            }
+            
+            .volume-slider-wrapper {
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 32px;
+                height: 110px;
+                background: rgba(30, 20, 50, 0.95);
+                border-radius: 8px;
+                padding: 15px 0;
+                display: flex;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+                z-index: 100;
+                margin-bottom: 5px;
+            }
+            
+            .volume-container:hover .volume-slider-wrapper {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(-50%) translateY(-5px);
+            }
+            
+            .volume-slider {
+                -webkit-appearance: slider-vertical;
+                width: 4px;
+                height: 100%;
+                background: #5ba4e5;
+                outline: none;
+                cursor: pointer;
+            }
+
+            /* Tracklist Item Base Styles */
+            .track-item {
+                padding: 1.25em 1.5em;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: background 0.2s ease; /* Removed layout transitions from default state */
+                border-radius: 8px;
+                margin: 2px 0;
+                will-change: font-size, padding; /* Hardware acceleration for fluid scaling */
+            }
+            
+            .track-item:last-child {
+                border-bottom: none;
+            }
+            
+            .track-item:hover {
+                background: rgba(255, 255, 255, 0.08); 
+            }
+
             /* --- WATCH SECTION SINGLE VIDEO GALLERY --- */
             :root {
-                --plyr-color-main: #5ba4e5; /* Match your light blue */
+                --plyr-color-main: #5ba4e5; 
             }
 
             .video-gallery {
@@ -340,29 +435,38 @@
                             
                             <div class="custom-player" style="background: rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 2em; margin-top: 2em;">
                                 <div style="display: flex; align-items: center; gap: 2em; margin-bottom: 2em;">
-                                    <button id="main-play-btn" style="flex-shrink: 0; width: 64px; height: 64px; padding: 0; border-radius: 50%; background: #5ba4e5; color: white; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); outline: none;">
-                                        <span class="icon solid fa-play" style="font-size: 1.5em; margin-left: 4px;"></span>
+                                    
+                                    <button id="main-play-btn" style="flex-shrink: 0; width: 64px; height: 64px; padding: 0; border-radius: 50%; background: #5ba4e5; color: white; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); outline: none;">
+                                        <span class="icon solid fa-play" style="font-size: 1.5em;"></span>
                                     </button>
+                                    
                                     <div id="waveform" style="flex-grow: 1; cursor: pointer;"></div>
+                                    
+                                    <div class="volume-container">
+                                        <span class="icon solid fa-volume-up" style="font-size: 1.25em;"></span>
+                                        <div class="volume-slider-wrapper">
+                                            <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="1" orient="vertical" />
+                                        </div>
+                                    </div>
+                                    
                                 </div>
 
-                            <!-- Tracklist -->
                                 <ul id="tracklist" style="list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                                    <li data-url="audio/Alas... Sanctuary.wav" style="padding: 1.25em 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                    <li class="track-item" data-url="audio/Alas... Sanctuary.wav">
                                         <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.75em;">
                                             <span class="track-title" style="color: inherit;">Alas... Sanctuary (Action, Fantasy)</span>
                                         </div>
                                         <span style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">1:21</span>
                                     </li>
-                                    <li data-url="audio/love.wav" style="padding: 1.25em 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                    <li class="track-item" data-url="audio/love.wav">
                                         <span class="track-title" style="color: #5ba4e5; font-weight: bold;">Reminiscing in F (Orchestra, Family)</span>
                                         <span style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">0:48</span>
                                     </li>
-                                    <li data-url="audio/stank.wav" style="padding: 1.25em 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                    <li class="track-item" data-url="audio/stank.wav">
                                         <span class="track-title" style="color: inherit;">Stank (Hip-Hop, Funk)</span>
                                         <span style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">0:46</span>
                                     </li>
-                                    <li data-url="audio/capgras.wav" style="padding: 1.25em 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                    <li class="track-item" data-url="audio/capgras.wav">
                                         <span class="track-title" style="color: inherit;">Capgras (Thriller, Horror)</span>
                                         <span style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">1:16</span>
                                     </li>
@@ -371,28 +475,21 @@
                         </div>
                     </section>
 
-                <!-- Two (Watch) -->
-                    <section id="two" class="wrapper style1 fullscreen fade-up">
+                <section id="two" class="wrapper style1 fullscreen fade-up">
                         <div class="inner">
                             <h2>Watch</h2>
                             
-                            <!-- Unified Gallery Container -->
                             <div class="video-gallery">
-                                <!-- Main Video Display -->
                                 <div class="gallery-screen">
-                                    <!-- Video 1 (Now Harmony Rescore) -->
                                     <div class="video-slide active" data-title="Harmony Rescore" data-desc="Animated short by ESMA">
                                         <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="Z6DG4o8NN6A"></div>
                                     </div>
-                                    <!-- Video 2 (Oryctes) -->
                                     <div class="video-slide" data-title="Oryctes Rescore" data-desc="Animated Short by Glow Production">
                                         <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="shYIh4Boj-s"></div>
                                     </div>
-                                    <!-- Video 3 (Compass Course) -->
                                     <div class="video-slide" data-title="MIT Compass Course" data-desc="MIT Documentary Short Film">
                                         <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="QkbwtoR4350"></div>
                                     </div>
-                                    <!-- Video 4 (Now A Second of Sight) -->
                                     <div class="video-slide" data-title="A Second of Sight" data-desc="MIT Student Film">
                                         <video class="custom-video-player" playsinline controls>
                                             <source src="video/sos.mp4" type="video/mp4" />
@@ -400,11 +497,9 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Slider Controls -->
                                 <div class="gallery-controls">
                                     <button id="gallery-prev" class="gallery-btn"><span class="icon solid fa-chevron-left"></span> Previous</button>
                                     
-                                    <!-- Updated default text to match Harmony Rescore -->
                                     <div class="gallery-info" style="text-align: center;">
                                         <h3 id="gallery-title" style="margin: 0; color: #5ba4e5; font-weight: bold; font-size: 1.25em;">Harmony Rescore</h3>
                                         <p id="gallery-desc" style="margin: 0; font-size: 0.85em; color: rgba(255, 255, 255, 0.65);">Animated short by ESMA</p>
@@ -518,6 +613,7 @@
             <script src="assets/js/main.js"></script>
 
         <script src="https://unpkg.com/wavesurfer.js@7"></script>
+        <script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/hover.min.js"></script>
         <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
         
         <script>
@@ -528,7 +624,7 @@
                     ratio: '16:9'
                 });
 
-                // --- AUDIO PLAYER INITIALIZATION ---
+                // --- AUDIO PLAYER INITIALIZATION WITH HOVER PLUGIN ---
                 const wavesurfer = WaveSurfer.create({
                     container: '#waveform',
                     waveColor: 'rgba(255, 255, 255, 0.3)', 
@@ -537,15 +633,24 @@
                     barWidth: 2,
                     barRadius: 3,
                     height: 80,
-                    normalize: true
+                    normalize: true,
+                    plugins: [
+                        WaveSurfer.Hover.create({
+                            lineColor: '#ffffff',
+                            lineWidth: 2,
+                            labelBackground: 'rgba(0, 0, 0, 0.75)',
+                            labelColor: '#fff',
+                            labelSize: '12px',
+                        }),
+                    ],
                 });
 
                 const playBtn = document.getElementById('main-play-btn');
                 const playIcon = playBtn.querySelector('.icon');
-                const tracks = document.querySelectorAll('#tracklist li');
+                const tracks = document.querySelectorAll('#tracklist li.track-item');
 
                 // Load the first track by default
-                let currentTrackUrl = tracks[0].getAttribute('data-url');
+                let currentTrackUrl = tracks[1].getAttribute('data-url');
                 wavesurfer.load(currentTrackUrl);
 
                 // Play/Pause Button Logic
@@ -553,20 +658,35 @@
                     wavesurfer.playPause();
                 });
 
-                // Swap FontAwesome icons when playing/paused
+                // Swap FontAwesome icons via class toggles
                 wavesurfer.on('play', () => {
                     playIcon.classList.remove('fa-play');
                     playIcon.classList.add('fa-pause');
-                    playIcon.style.marginLeft = '0'; 
                 });
 
                 wavesurfer.on('pause', () => {
                     playIcon.classList.remove('fa-pause');
                     playIcon.classList.add('fa-play');
-                    playIcon.style.marginLeft = '4px'; 
                 });
 
-                // Tracklist Click Logic
+                // --- VOLUME SLIDER LOGIC ---
+                const volumeSlider = document.getElementById('volume-slider');
+                const volumeIcon = document.querySelector('.volume-container .icon');
+                
+                volumeSlider.addEventListener('input', (e) => {
+                    const vol = parseFloat(e.target.value);
+                    wavesurfer.setVolume(vol);
+                    
+                    if (vol === 0) {
+                        volumeIcon.className = 'icon solid fa-volume-mute';
+                    } else if (vol < 0.5) {
+                        volumeIcon.className = 'icon solid fa-volume-down';
+                    } else {
+                        volumeIcon.className = 'icon solid fa-volume-up';
+                    }
+                });
+
+                // --- TRACKLIST CLICK LOGIC ---
                 tracks.forEach(track => {
                     track.addEventListener('click', function() {
                         const newUrl = this.getAttribute('data-url');
@@ -591,6 +711,58 @@
                         wavesurfer.on('ready', () => {
                             wavesurfer.play();
                         }, { once: true }); 
+                    });
+                });
+
+                // --- APPLE DOCK HOVER MAGNIFY EFFECT (FLUID 60FPS UPGRADE) ---
+                const tracklistContainer = document.getElementById('tracklist');
+                let mouseY = 0;
+                let isHoveringList = false;
+                let rafId = null;
+
+                function updateDock() {
+                    if (!isHoveringList) return;
+
+                    tracks.forEach(item => {
+                        const rect = item.getBoundingClientRect();
+                        const itemCenterY = rect.top + rect.height / 2;
+                        const distance = Math.abs(mouseY - itemCenterY);
+                        
+                        const maxDistance = 150; 
+                        
+                        if (distance < maxDistance) {
+                            const scale = 1 + (0.08 * (1 - distance / maxDistance));
+                            item.style.fontSize = `${scale}em`;
+                            item.style.padding = `${1.25 * scale}em 1.5em`;
+                        } else {
+                            item.style.fontSize = '1em';
+                            item.style.padding = '1.25em 1.5em';
+                        }
+                    });
+
+                    rafId = requestAnimationFrame(updateDock);
+                }
+
+                tracklistContainer.addEventListener('mousemove', (e) => {
+                    mouseY = e.clientY;
+                });
+
+                tracklistContainer.addEventListener('mouseenter', () => {
+                    isHoveringList = true;
+                    // Remove CSS transitions while active so JS can run at 60fps without lag
+                    tracks.forEach(item => item.style.transition = 'background 0.2s ease');
+                    updateDock();
+                });
+
+                tracklistContainer.addEventListener('mouseleave', () => {
+                    isHoveringList = false;
+                    cancelAnimationFrame(rafId);
+                    
+                    // Re-apply CSS transitions so they shrink back down smoothly
+                    tracks.forEach(item => {
+                        item.style.transition = 'background 0.2s ease, font-size 0.3s cubic-bezier(0.25, 1, 0.5, 1), padding 0.3s cubic-bezier(0.25, 1, 0.5, 1)';
+                        item.style.fontSize = '1em';
+                        item.style.padding = '1.25em 1.5em';
                     });
                 });
 
