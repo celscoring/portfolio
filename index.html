@@ -201,10 +201,10 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                transition: background 0.2s ease; /* Removed layout transitions from default state */
+                transition: background 0.2s ease; 
                 border-radius: 8px;
                 margin: 2px 0;
-                will-change: font-size, padding; /* Hardware acceleration for fluid scaling */
+                will-change: font-size, padding; 
             }
             
             .track-item:last-child {
@@ -213,6 +213,12 @@
             
             .track-item:hover {
                 background: rgba(255, 255, 255, 0.08); 
+            }
+
+            /* Automatically styles the title of whichever track is active */
+            .track-item.active-track .track-title {
+                color: #5ba4e5 !important;
+                font-weight: bold !important;
             }
 
             /* --- WATCH SECTION SINGLE VIDEO GALLERY --- */
@@ -460,19 +466,19 @@
                                         <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.75em;">
                                             <span class="track-title" style="color: inherit;">Alas... Sanctuary (Action, Fantasy)</span>
                                         </div>
-                                        <span style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">1:21</span>
+                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">--:--</span>
                                     </li>
                                     <li class="track-item" data-url="audio/love.wav">
-                                        <span class="track-title" style="color: #5ba4e5; font-weight: bold;">Reminiscing in F (Orchestra, Family)</span>
-                                        <span style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">0:48</span>
+                                        <span class="track-title" style="color: inherit;">Reminiscing in F (Orchestra, Family)</span>
+                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">--:--</span>
                                     </li>
                                     <li class="track-item" data-url="audio/stank.wav">
                                         <span class="track-title" style="color: inherit;">Stank (Hip-Hop, Funk)</span>
-                                        <span style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">0:46</span>
+                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">--:--</span>
                                     </li>
                                     <li class="track-item" data-url="audio/capgras.wav">
                                         <span class="track-title" style="color: inherit;">Capgras (Thriller, Horror)</span>
-                                        <span style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">1:16</span>
+                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">--:--</span>
                                     </li>
                                 </ul>
                             </div>
@@ -653,7 +659,21 @@
                 const playIcon = playBtn.querySelector('.icon');
                 const tracks = document.querySelectorAll('#tracklist li.track-item');
 
-                // Load the first track by default
+                // --- AUTO-FETCH AUDIO DURATIONS ---
+                tracks.forEach(track => {
+                    const url = track.getAttribute('data-url');
+                    const durationText = track.querySelector('.track-duration');
+                    
+                    const tempAudio = new Audio(url);
+                    tempAudio.addEventListener('loadedmetadata', () => {
+                        const minutes = Math.floor(tempAudio.duration / 60);
+                        const seconds = Math.floor(tempAudio.duration % 60).toString().padStart(2, '0');
+                        durationText.innerText = `${minutes}:${seconds}`;
+                    });
+                });
+
+                // --- INITIALIZE FIRST TRACK ---
+                tracks[0].classList.add('active-track');
                 let currentTrackUrl = tracks[0].getAttribute('data-url');
                 wavesurfer.load(currentTrackUrl);
 
@@ -700,15 +720,11 @@
                             return;
                         }
 
-                        tracks.forEach(t => {
-                            const title = t.querySelector('.track-title');
-                            title.style.color = 'inherit';
-                            title.style.fontWeight = 'normal';
-                        });
+                        // Reset all tracks
+                        tracks.forEach(t => t.classList.remove('active-track'));
                         
-                        const clickedTitle = this.querySelector('.track-title');
-                        clickedTitle.style.color = '#5ba4e5'; 
-                        clickedTitle.style.fontWeight = 'bold';
+                        // Highlight clicked track
+                        this.classList.add('active-track');
                         
                         currentTrackUrl = newUrl;
                         wavesurfer.load(newUrl);
