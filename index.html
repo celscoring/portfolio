@@ -10,10 +10,21 @@
         <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 
         <style>
-            /* --- UNIFIED SCROLLING GRADIENT --- */
+            /* --- UNIFIED SCROLLING GRADIENT & VIGNETTE --- */
             #wrapper {
-                background-color: #5152b5 !important;
-                background-image: linear-gradient(to bottom, #5152b5, #2f2052) !important;
+                background-color: #000000 !important;
+                background-image: 
+                    radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%),
+                    linear-gradient(to bottom, #2b1b42 0%, #000000 100%) !important;
+            }
+
+            /* --- SIDEBAR DEPTH & VIGNETTE --- */
+            #sidebar {
+                background-color: #181124 !important;
+                background-image: 
+                    radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.6) 100%),
+                    linear-gradient(to bottom, #1d142b 0%, #08050c 100%) !important;
+                box-shadow: inset -8px 0 20px rgba(0,0,0,0.4) !important; 
             }
 
             /* --- ULTRAWIDE MONITOR FIX --- */
@@ -37,7 +48,11 @@
                     position: relative !important;
                     height: auto !important;
                     padding: 1.5em 0 !important;
-                    background-color: #31244f !important; 
+                    background-color: #181124 !important; 
+                    background-image: 
+                        radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.6) 100%),
+                        linear-gradient(to bottom, #1d142b 0%, #08050c 100%) !important;
+                    box-shadow: inset 0 -8px 20px rgba(0,0,0,0.4) !important; 
                 }
                 
                 #sidebar nav ul {
@@ -81,12 +96,10 @@
             /* --- INTRO SECTION --- */
             #intro {
                 background-color: #4b49a2 !important;
-                /* Stacks a dark shadow gradient on the left edge, fading to completely transparent by the middle of the screen */
                 background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 60%), url('images/clay-mixer.JPG') !important; 
                 background-size: cover !important; 
                 background-position: center center !important; 
                 background-repeat: no-repeat !important; 
-                /* The gradient stays normal, while the image below it multiplies with the purple background color */
                 background-blend-mode: normal, multiply !important; 
             }
             
@@ -94,12 +107,12 @@
                 background: transparent !important; 
                 padding: 3em;
                 position: relative;
-                z-index: 2; /* Ensures the text strictly stays above the background layers */
+                z-index: 2; 
             }
 
             /* --- SECTION DIVIDERS --- */
             #two, #three, #four {
-                border-top: 1px solid #ffffff !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.1) !important; 
             }
 
             /* --- SIDEBAR GRADIENT UNDERLINE --- */
@@ -112,16 +125,25 @@
                 color: #5ba4e5 !important;
             }
 
+            /* --- GLOBAL BUTTON UNIFICATION --- */
             #three a.button {
-                box-shadow: inset 0 0 0 2px #ffffff !important;
+                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25) !important;
                 color: #ffffff !important;
+                background-color: transparent !important;
             }
             #three a.button:hover {
-                background-color: rgba(255, 255, 255, 0.2) !important;
+                box-shadow: inset 0 0 0 1px #5ba4e5 !important;
+                color: #5ba4e5 !important;
+                background-color: rgba(91, 164, 229, 0.05) !important;
+            }
+
+            /* --- FORM FIXES --- */
+            textarea {
+                resize: vertical !important; /* Prevents dragging horizontally past the divider */
+                max-width: 100% !important;
             }
 
             /* --- AUDIO PLAYER UPGRADES --- */
-            /* Play Button Optical Alignment */
             #main-play-btn {
                 display: flex;
                 justify-content: center;
@@ -141,7 +163,6 @@
                 transform: translateX(1.5px); 
             }
 
-            /* Vertical Volume Slider */
             .volume-container {
                 position: relative;
                 display: flex;
@@ -193,7 +214,6 @@
                 cursor: pointer;
             }
 
-            /* Tracklist Item Base Styles */
             .track-item {
                 padding: 1.25em 1.5em;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -215,7 +235,6 @@
                 background: rgba(255, 255, 255, 0.08); 
             }
 
-            /* Automatically styles the title of whichever track is active */
             .track-item.active-track .track-title {
                 color: #5ba4e5 !important;
                 font-weight: bold !important;
@@ -264,24 +283,30 @@
                 margin-top: 1.5em;
             }
 
+            /* Gallery Navigation Buttons Unification */
             .gallery-btn {
                 background: transparent !important;
-                border: 1px solid rgba(255, 255, 255, 0.25) !important;
+                border: none !important;
+                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25) !important;
                 color: #fff !important;
                 padding: 0 1.5em !important;
-                height: 3em !important;
-                line-height: 3em !important;
-                border-radius: 4px !important;
+                height: 2.75em !important;
+                line-height: 2.75em !important;
+                border-radius: 2.75em !important;
                 cursor: pointer;
                 transition: all 0.2s ease;
                 display: flex;
                 align-items: center;
                 gap: 0.5em;
+                font-size: 0.8em !important;
+                font-weight: bold !important;
+                letter-spacing: 0.1em !important;
+                text-transform: uppercase !important;
             }
 
             .gallery-btn:hover {
-                background: rgba(255, 255, 255, 0.1) !important;
-                border-color: #5ba4e5 !important;
+                background: rgba(91, 164, 229, 0.05) !important;
+                box-shadow: inset 0 0 0 1px #5ba4e5 !important;
                 color: #5ba4e5 !important;
             }
 
@@ -405,7 +430,7 @@
 
             /* --- FOOTER FIX --- */
             #footer {
-                background-color: #31244f !important; 
+                background-color: #000000 !important; 
                 border-top: 1px solid rgba(255, 255, 255, 0.05) !important; 
             }
 
@@ -433,9 +458,6 @@
                         <div class="inner">
                             <h1 style="font-size: 5em; font-weight: bold; letter-spacing: 0.05em; margin-bottom: 0.25em;">CLAY LEWIS</h1>
                             <p style="font-size: 2em; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.65);">FILM AND MEDIA COMPOSER</p>
-                            <ul class="actions" style="margin-top: 2em;">
-                                <li><a href="#one" class="button scrolly">LISTEN</a></li>
-                            </ul>
                         </div>
                     </section>
 
@@ -461,6 +483,7 @@
                                     
                                 </div>
 
+                                <!-- Tracklist with Auto-Duration Placeholders -->
                                 <ul id="tracklist" style="list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                     <li class="track-item" data-url="audio/Alas... Sanctuary.wav">
                                         <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.75em;">
