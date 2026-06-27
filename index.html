@@ -96,7 +96,7 @@
             /* --- INTRO SECTION --- */
             #intro {
                 background-color: #4b49a2 !important;
-                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 60%), url('images/clay-mixer.JPG') !important; 
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 60%), url('images/clay-mixer.jpeg') !important; 
                 background-size: cover !important; 
                 background-position: center center !important; 
                 background-repeat: no-repeat !important; 
@@ -483,25 +483,25 @@
                                     
                                 </div>
 
-                                <!-- Tracklist with Auto-Duration Placeholders -->
+                                <!-- Tracklist with Manual Durations -->
                                 <ul id="tracklist" style="list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                                    <li class="track-item" data-url="audio/Alas... Sanctuary.wav">
+                                    <li class="track-item" data-url="audio/Alas... Sanctuary.mp3">
                                         <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.75em;">
                                             <span class="track-title" style="color: inherit;">Alas... Sanctuary (Action, Fantasy)</span>
                                         </div>
-                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">--:--</span>
+                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">1:21</span>
                                     </li>
-                                    <li class="track-item" data-url="audio/love.wav">
+                                    <li class="track-item" data-url="audio/love.mp3">
                                         <span class="track-title" style="color: inherit;">Reminiscing in F (Orchestra, Family)</span>
-                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">--:--</span>
+                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">0:47</span>
                                     </li>
-                                    <li class="track-item" data-url="audio/stank.wav">
+                                    <li class="track-item" data-url="audio/stank.mp3">
                                         <span class="track-title" style="color: inherit;">Stank (Hip-Hop, Funk)</span>
-                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">--:--</span>
+                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">0:45</span>
                                     </li>
-                                    <li class="track-item" data-url="audio/capgras.wav">
+                                    <li class="track-item" data-url="audio/capgras.mp3">
                                         <span class="track-title" style="color: inherit;">Capgras (Thriller, Horror)</span>
-                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">--:--</span>
+                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">1:15</span>
                                     </li>
                                 </ul>
                             </div>
@@ -557,7 +557,7 @@
                                 <p>During his undergraduate career, Lewis studied composition under renowned mentors Elena Ruehr, Charles Shadle, and Evan Ziporyn. In addition to composing, he possesses a strong background in audio and video engineering. As a production intern for the national organization The Last Mile, Lewis developed specialized educational media and engineered audio sessions to deliver technical training curriculum to incarcerated individuals.</p>
                             </div>
                             <div class="about-image">
-                                <img src="images/clay-headshot.JPG" alt="About Me" />
+                                <img src="images/clay-headshot.jpeg" alt="About Me" />
                             </div>
                         </div>
 
@@ -681,19 +681,6 @@
                 const playBtn = document.getElementById('main-play-btn');
                 const playIcon = playBtn.querySelector('.icon');
                 const tracks = document.querySelectorAll('#tracklist li.track-item');
-
-                // --- AUTO-FETCH AUDIO DURATIONS ---
-                tracks.forEach(track => {
-                    const url = track.getAttribute('data-url');
-                    const durationText = track.querySelector('.track-duration');
-                    
-                    const tempAudio = new Audio(url);
-                    tempAudio.addEventListener('loadedmetadata', () => {
-                        const minutes = Math.floor(tempAudio.duration / 60);
-                        const seconds = Math.floor(tempAudio.duration % 60).toString().padStart(2, '0');
-                        durationText.innerText = `${minutes}:${seconds}`;
-                    });
-                });
 
                 // --- INITIALIZE FIRST TRACK ---
                 tracks[0].classList.add('active-track');
