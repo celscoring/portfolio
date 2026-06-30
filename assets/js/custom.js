@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- APPLE DOCK HOVER MAGNIFY EFFECT (FLUID 60FPS UPGRADE) ---
+    // --- APPLE DOCK HOVER MAGNIFY EFFECT ---
     const tracklistContainer = document.getElementById('tracklist');
     let mouseY = 0;
     let isHoveringList = false;
