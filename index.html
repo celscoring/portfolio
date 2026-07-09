@@ -1,229 +1,277 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>Clay Lewis - Film Composer</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-        
-        <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-        <link rel="stylesheet" href="assets/css/style.css" />
-    </head>
-    <body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clay Lewis — Film &amp; Media Composer</title>
+  <meta name="description" content="Clay Lewis — Film & Media Composer. USC Screen Scoring MFA. Scored-to-picture work and standalone compositions.">
+  <link rel="canonical" href="https://claylewismusic.com/">
 
-        <section id="sidebar">
-                <div class="inner">
-                    <nav>
-                        <ul>
-                            <li><a href="#intro">Home</a></li>
-                            <li><a href="#one">Listen</a></li>
-                            <li><a href="#two">Watch</a></li>
-                            <li><a href="#three">About</a></li>
-                            <li><a href="#four">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </section>
+  <!-- Social sharing -->
+  <meta property="og:title" content="Clay Lewis — Film &amp; Media Composer">
+  <meta property="og:description" content="Portfolio of scored-to-picture and standalone compositions. USC Screen Scoring MFA.">
+  <meta property="og:image" content="https://claylewismusic.com/assets/og-image.jpg">
+  <meta property="og:url" content="https://claylewismusic.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 
-        <div id="wrapper">
+  <!-- Icons -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-                <section id="intro" class="wrapper style1 fullscreen fade-up">
-                        <div class="inner">
-                            <h1 style="font-size: 5em; font-weight: bold; letter-spacing: 0.05em; margin-bottom: 0.25em;">CLAY LEWIS</h1>
-                            <p style="font-size: 2em; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.65);">Film and Media Composer</p>
-                        </div>
-                    </section>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-                <section id="one" class="wrapper style2 fullscreen fade-up">
-                        <div class="inner">
-                            <h2>Listen</h2>
-                            
-                            <div class="custom-player" style="background: rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 2em; margin-top: 2em;">
-                                <div style="display: flex; align-items: center; gap: 2em; margin-bottom: 2em;">
-                                    
-                                    <button id="main-play-btn" style="flex-shrink: 0; width: 64px; height: 64px; padding: 0; border-radius: 50%; background: #5ba4e5; color: white; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); outline: none;">
-                                        <span class="icon solid fa-play" style="font-size: 1.5em;"></span>
-                                    </button>
-                                    
-                                    <div id="waveform" style="flex-grow: 1; cursor: pointer;"></div>
-                                    
-                                    <div class="volume-container">
-                                        <span class="icon solid fa-volume-up" style="font-size: 1.25em;"></span>
-                                        <div class="volume-slider-wrapper">
-                                            <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="1" orient="vertical" />
-                                        </div>
-                                    </div>
-                                    
-                                </div>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 
-                                <!-- Tracklist with Manual Durations -->
-                                <ul id="tracklist" style="list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                                    <li class="track-item" data-url="audio/Alas... Sanctuary.mp3">
-                                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.75em;">
-                                            <span class="track-title" style="color: inherit;">Alas... Sanctuary (Action, Fantasy)</span>
-                                        </div>
-                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">1:21</span>
-                                    </li>
-                                    <li class="track-item" data-url="audio/love.mp3">
-                                        <span class="track-title" style="color: inherit;">Reminiscing in F (Orchestra, Family)</span>
-                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">0:47</span>
-                                    </li>
-                                    <li class="track-item" data-url="audio/stank.mp3">
-                                        <span class="track-title" style="color: inherit;">Stank (Hip-Hop, Funk)</span>
-                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">0:45</span>
-                                    </li>
-                                    <li class="track-item" data-url="audio/capgras.mp3">
-                                        <span class="track-title" style="color: inherit;">Capgras (Thriller, Horror)</span>
-                                        <span class="track-duration" style="font-size: 0.9em; color: rgba(255, 255, 255, 0.5);">1:15</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Clay Lewis",
+    "jobTitle": "Film & Media Composer",
+    "url": "https://claylewismusic.com/",
+    "email": "mailto:celscoring@gmail.com",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Massachusetts Institute of Technology" },
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Southern California" },
+    "sameAs": [
+      "https://www.youtube.com/@Composer_Clay",
+      "https://www.instagram.com/_claylewis_/",
+      "https://www.linkedin.com/in/clay-lewis-92a4a2225"
+    ]
+  }
+  </script>
+</head>
+<body>
 
-                <section id="two" class="wrapper style1 fullscreen fade-up">
-                        <div class="inner">
-                            <h2>Watch</h2>
-                            
-                            <div class="video-gallery">
-                                <div class="gallery-screen">
-                                    <div class="video-slide active" data-title="Harmony Rescore" data-desc="Animated short by ESMA">
-                                        <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="Z6DG4o8NN6A"></div>
-                                    </div>
-                                    <div class="video-slide" data-title="Oryctes Rescore" data-desc="Animated Short by Glow Production">
-                                        <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="shYIh4Boj-s"></div>
-                                    </div>
-                                    <div class="video-slide" data-title="MIT Compass Course" data-desc="MIT Documentary Short Film">
-                                        <div class="custom-video-player" data-plyr-provider="youtube" data-plyr-embed-id="QkbwtoR4350"></div>
-                                    </div>
-                                    <div class="video-slide" data-title="A Second of Sight" data-desc="MIT Student Film">
-                                        <video class="custom-video-player" playsinline controls>
-                                            <source src="video/sos.mp4" type="video/mp4" />
-                                        </video>
-                                    </div>
-                                </div>
-                                
-                                <div class="gallery-controls">
-                                    <button id="gallery-prev" class="gallery-btn"><span class="icon solid fa-chevron-left"></span> Previous</button>
-                                    
-                                    <div class="gallery-info" style="text-align: center;">
-                                        <h3 id="gallery-title" style="margin: 0; color: #5ba4e5; font-weight: bold; font-size: 1.25em;">Harmony Rescore</h3>
-                                        <p id="gallery-desc" style="margin: 0; font-size: 0.85em; color: rgba(255, 255, 255, 0.65);">Animated short by ESMA</p>
-                                    </div>
-                                    
-                                    <button id="gallery-next" class="gallery-btn">Next <span class="icon solid fa-chevron-right"></span></button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </section>
+<a class="skip-link" href="#main">Skip to content</a>
 
-                <section id="three" class="wrapper style3 fade-up" style="padding: 0;">
-                        
-                        <div class="about-header">
-                            <h2>About Me</h2>
-                        </div>
+<header class="sidebar">
+  <a class="sidebar-name" href="#hero">Clay Lewis</a>
+  <nav class="sidebar-nav" aria-label="Site sections">
+    <a href="#work">Work</a>
+    <a href="#compositions">Compositions</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-                        <div class="about-container">
-                            <div class="about-text">
-                                <p>Clay Lewis is a film composer and engineer whose work bridges the gap between deep orchestral traditions and modern technology. Drawn towards moving melodies and unique sonic worlds, Lewis seamlessly integrates advanced software workflows with acoustic orchestration. He is a recent graduate of the Massachusetts Institute of Technology (MIT), where he earned a Bachelor of Science in Music with a minor in Computer Science. This fall, he will continue his career in the Screen Scoring Master’s program at the University of Southern California (USC) Thornton School of Music.</p>
-                                <p>During his undergraduate career, Lewis studied composition under renowned mentors Elena Ruehr, Charles Shadle, and Evan Ziporyn. In addition to composing, he possesses a strong background in audio and video engineering. As a production intern for the national organization The Last Mile, Lewis developed specialized educational media and engineered audio sessions to deliver technical training curriculum to incarcerated individuals.</p>
-                            </div>
-                            <div class="about-image">
-                                <img src="images/clay-headshot.jpeg" alt="About Me" loading="lazy" />
-                            </div>
-                        </div>
+<main id="main">
 
-                        <div class="about-bottom-text">
-                            <p>Lewis has scored a diverse range of professional and indie films. Notably, he composed the score and produced the music for the MIT parody student film Log Log Land, which received critical praise from The Boston Globe. His artistic excellence and contributions to the field have been recognized with the MIT Laya and Jerome B. Wiesner Student Art Award, the Ragnar and Margaret Naess Certificate of Distinction in the Arts, and the Warren Prize in Scoring for Motion Picture and TV.</p>
-                            <ul class="actions">
-                                <li><a href="#four" class="button scrolly">Get in touch</a></li>
-                            </ul>
-                        </div>
-                        
-                    </section>
+  <!-- ═══════════════════════════════ HERO ═══════════════════════ -->
+  <section id="hero" aria-label="Introduction" class="hero">
+    <img class="hero-img" src="assets/studio-hero.jpg" alt="Clay Lewis at the mixing console" fetchpriority="high">
+    <div class="hero-vignette"></div>
+    <div class="hero-scrim-left"></div>
+    <div class="hero-scrim-bottom"></div>
+    <div class="hero-id">
+      <h1 id="heroName" class="hero-name">Clay Lewis</h1>
+      <p class="hero-credential"><span>Film &amp; Media Composer</span><span>USC Screen Scoring MFA</span></p>
+    </div>
+    <div class="hero-chevron">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0ece4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+  </section>
 
-                <section id="four" class="wrapper style1 fade-up">
-                        <div class="inner">
-                            <h2>Contact</h2>
-                            <p>If you'd like to collaborate on an upcoming project, discuss scoring needs for your film, or simply connect, feel free to reach out using the form below.</p>
-                            <div class="split style1">
-                                <section>
-                                    <form action="https://api.web3forms.com/submit" method="POST">
-                                        
-                                        <input type="hidden" name="access_key" value="0c30e109-32f8-462c-9fe1-dce3a1bc2bb6">
-                                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+  <!-- ═══════════════ FEATURED PIECE ══════════════════════════════
+       EDIT HERE to swap the featured work: change the iframe src
+       (Vimeo video ID), title attribute, and the metadata below. -->
+  <section id="work" aria-label="Featured work" class="featured">
+    <div class="featured-inner">
+      <div class="video-frame">
+        <iframe src="https://player.vimeo.com/video/1207579512?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=0&amp;color=c8a96e&amp;title=0&amp;byline=0&amp;portrait=0" title="Harmony Rescore — Clay Lewis, Composer" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="project-info">
+        <h2 class="project-title">Harmony Rescore</h2>
+        <p class="project-meta">Rescore <span class="sep">·</span> Original film by ESMA <span class="sep">·</span> Composer <span class="sep">·</span> [Year]</p>
+      </div>
+    </div>
+  </section>
 
-                                        <div class="fields">
-                                            <div class="field half">
-                                                <label for="name">Name</label>
-                                                <input type="text" name="name" id="name" required />
-                                            </div>
-                                            <div class="field half">
-                                                <label for="email">Email</label>
-                                                <input type="email" name="email" id="email" required />
-                                            </div>
-                                            <div class="field">
-                                                <label for="message">Message</label>
-                                                <textarea name="message" id="message" rows="5" required></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <ul class="actions">
-                                            <li><button type="submit" class="button submit">Send Message</button></li>
-                                        </ul>
-                                    </form>
-                                </section>
-                                <section>
-                                    <ul class="contact">
-                                        <li>
-                                            <h3>Location</h3>
-                                            <span>Philadelphia, PA | Los Angeles, CA<br />
-                                            USA</span>
-                                        </li> 
-                                        <li>
-                                            <h3>Email</h3>
-                                            <a href="#">celscoring@gmail.com</a>
-                                        </li>
-                                        <li>
-                                            <h3>Social</h3>
-                                            <ul class="icons">
-                                                <li><a href="https://www.youtube.com/@Composer_Clay" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
-                                                <li><a href="https://www.instagram.com/_claylewis_/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                                                <li><a href="https://www.linkedin.com/in/clay-lewis-92a4a2225" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </section>
-                            </div>
-                        </div>
-                    </section>
+  <!-- ═══════════════ WORK ════════════════════════════════════════
+       EDIT HERE to add a project: copy an entire <article> block,
+       change data-vimeo-id, data-title, the facade aria-label, the
+       title, and the metadata line. Order = best work first. -->
+  <section aria-label="Film and scoring projects" class="work">
+    <div class="section-inner">
+      <h2 class="section-heading">Work</h2>
+      <div class="work-list">
 
+        <article class="project" data-reveal>
+          <button class="facade" data-vimeo-id="1208304263" data-title="Oryctes Rescore — Clay Lewis, Composer" aria-label="Play Oryctes Rescore">
+            <span class="facade-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+            </span>
+            <span class="facade-label">Watch</span>
+          </button>
+          <div class="project-info">
+            <h3 class="project-title">Oryctes Rescore</h3>
+            <p class="project-meta">Rescore <span class="sep">·</span> Dir. [Director] <span class="sep">·</span> Composer <span class="sep">·</span> [Year]</p>
+          </div>
+        </article>
+
+        <article class="project" data-reveal>
+          <button class="facade" data-vimeo-id="1208304124" data-title="A Second of Sight — Clay Lewis, Composer" aria-label="Play A Second of Sight">
+            <span class="facade-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+            </span>
+            <span class="facade-label">Watch</span>
+          </button>
+          <div class="project-info">
+            <h3 class="project-title">A Second of Sight</h3>
+            <p class="project-meta">Student Film <span class="sep">·</span> Dir. [Director] <span class="sep">·</span> Composer <span class="sep">·</span> [Year]</p>
+          </div>
+        </article>
+
+        <article class="project" data-reveal>
+          <button class="facade" data-vimeo-id="1208304011" data-title="MIT Compass Course — Clay Lewis, Composer" aria-label="Play MIT Compass Course">
+            <span class="facade-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+            </span>
+            <span class="facade-label">Watch</span>
+          </button>
+          <div class="project-info">
+            <h3 class="project-title">MIT Compass Course</h3>
+            <p class="project-meta">Documentary <span class="sep">·</span> Dir. [Director] <span class="sep">·</span> Composer <span class="sep">·</span> [Year]</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ COMPOSITIONS ════════════════════════════════
+       EDIT HERE to add a track: copy a .track block, change
+       data-src (mp3 path), data-duration (seconds), the title,
+       the label line, and the duration text. -->
+  <section id="compositions" aria-label="Standalone compositions" class="compositions">
+    <div class="section-inner">
+      <h2 class="section-heading">Compositions</h2>
+      <div class="track-list">
+
+        <div class="track" data-reveal data-src="assets/audio/alas-sanctuary.mp3" data-duration="81">
+          <div class="track-top">
+            <button class="track-btn" aria-label="Play Alas... Sanctuary">
+              <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+              <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+            </button>
+            <div class="track-info">
+              <span class="track-title">Alas... Sanctuary</span>
+              <span class="track-genre">Action, Fantasy</span>
             </div>
+            <span class="track-time">1:21</span>
+          </div>
+          <div class="track-seek" role="slider" tabindex="0" aria-label="Seek — Alas... Sanctuary" aria-valuemin="0" aria-valuemax="81" aria-valuenow="0" aria-valuetext="0:00 of 1:21">
+            <div class="seek-rail"></div>
+            <div class="seek-fill"></div>
+            <div class="seek-handle"></div>
+          </div>
+        </div>
 
-        <footer id="footer" class="wrapper style1-alt">
-                <div class="inner">
-                    <ul class="menu">
-                        <li>&copy; 2026 Clay Lewis. All rights reserved.</li>
-                        <li>Design: <a href="http://html5up.net">HTML5 UP</a> (Modified)</li>
-                    </ul>
-                </div>
-            </footer>
+        <div class="track" data-reveal data-src="assets/audio/reminiscing-in-f.mp3" data-duration="48">
+          <div class="track-top">
+            <button class="track-btn" aria-label="Play Reminiscing in F">
+              <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+              <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+            </button>
+            <div class="track-info">
+              <span class="track-title">Reminiscing in F</span>
+              <span class="track-genre">Orchestra, Family</span>
+            </div>
+            <span class="track-time">0:47</span>
+          </div>
+          <div class="track-seek" role="slider" tabindex="0" aria-label="Seek — Reminiscing in F" aria-valuemin="0" aria-valuemax="48" aria-valuenow="0" aria-valuetext="0:00 of 0:47">
+            <div class="seek-rail"></div>
+            <div class="seek-fill"></div>
+            <div class="seek-handle"></div>
+          </div>
+        </div>
 
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.scrollex.min.js"></script>
-        <script src="assets/js/jquery.scrolly.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+        <div class="track" data-reveal data-src="assets/audio/stank.mp3" data-duration="46">
+          <div class="track-top">
+            <button class="track-btn" aria-label="Play Stank">
+              <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+              <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+            </button>
+            <div class="track-info">
+              <span class="track-title">Stank</span>
+              <span class="track-genre">Hip-Hop, Funk</span>
+            </div>
+            <span class="track-time">0:45</span>
+          </div>
+          <div class="track-seek" role="slider" tabindex="0" aria-label="Seek — Stank" aria-valuemin="0" aria-valuemax="46" aria-valuenow="0" aria-valuetext="0:00 of 0:45">
+            <div class="seek-rail"></div>
+            <div class="seek-fill"></div>
+            <div class="seek-handle"></div>
+          </div>
+        </div>
 
-        <script src="https://unpkg.com/wavesurfer.js@7"></script>
-        <script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/hover.min.js"></script>
-        <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-        
-        <script src="assets/js/custom.js"></script>
+        <div class="track" data-reveal data-src="assets/audio/capgras.mp3" data-duration="76">
+          <div class="track-top">
+            <button class="track-btn" aria-label="Play Capgras">
+              <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+              <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+            </button>
+            <div class="track-info">
+              <span class="track-title">Capgras</span>
+              <span class="track-genre">Thriller, Horror</span>
+            </div>
+            <span class="track-time">1:16</span>
+          </div>
+          <div class="track-seek" role="slider" tabindex="0" aria-label="Seek — Capgras" aria-valuemin="0" aria-valuemax="76" aria-valuenow="0" aria-valuetext="0:00 of 1:16">
+            <div class="seek-rail"></div>
+            <div class="seek-fill"></div>
+            <div class="seek-handle"></div>
+          </div>
+        </div>
 
-    </body>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ABOUT ═══════════════════════════════════════
+       EDIT HERE to update the bio: change the paragraph text. -->
+  <section id="about" aria-label="About Clay" class="about">
+    <div class="section-inner">
+      <h2 class="section-heading">About</h2>
+      <div class="about-body" data-reveal>
+        <p class="about-text">I'm Clay — a composer working in film and media, currently earning my Screen Scoring MFA at USC in Los Angeles. Before that I studied music and computer science at MIT, where I wrote for orchestras, chamber ensembles, and student films, and picked up a few composition awards along the way. What draws me to scoring is the moment a scene starts telling you what it needs — I like writing music that serves the story first. I'm always looking for directors and collaborators to build something with. If that's you, say hello.</p>
+        <img class="about-photo" src="assets/headshot-web.jpg" alt="Clay Lewis" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CONTACT ═════════════════════════════════════
+       EDIT HERE to update email, location, or social links. -->
+  <section id="contact" aria-label="Contact" class="contact">
+    <div class="section-inner">
+      <h2 class="section-heading">Contact</h2>
+      <div class="contact-body" data-reveal>
+        <a class="contact-email" href="mailto:celscoring@gmail.com">celscoring@gmail.com</a>
+        <span class="contact-location">Los Angeles, CA</span>
+        <div class="contact-socials">
+          <a href="https://www.youtube.com/@Composer_Clay" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/_claylewis_/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/clay-lewis-92a4a2225" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">© 2026 Clay Lewis</footer>
+
+</main>
+
+</body>
 </html>
