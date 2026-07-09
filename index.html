@@ -3,275 +3,177 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clay Lewis — Film &amp; Media Composer</title>
+  <title>Clay Lewis — Film & Media Composer</title>
   <meta name="description" content="Clay Lewis — Film & Media Composer. USC Screen Scoring MFA. Scored-to-picture work and standalone compositions.">
-  <link rel="canonical" href="https://claylewismusic.com/">
-
-  <!-- Social sharing -->
-  <meta property="og:title" content="Clay Lewis — Film &amp; Media Composer">
-  <meta property="og:description" content="Portfolio of scored-to-picture and standalone compositions. USC Screen Scoring MFA.">
-  <meta property="og:image" content="https://claylewismusic.com/assets/og-image.jpg">
-  <meta property="og:url" content="https://claylewismusic.com/">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Icons -->
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="assets/favicon.ico" sizes="32x32">
+  
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Clay Lewis",
-    "jobTitle": "Film & Media Composer",
-    "url": "https://claylewismusic.com/",
-    "email": "mailto:celscoring@gmail.com",
-    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Massachusetts Institute of Technology" },
-    "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Southern California" },
-    "sameAs": [
-      "https://www.youtube.com/@Composer_Clay",
-      "https://www.instagram.com/_claylewis_/",
-      "https://www.linkedin.com/in/clay-lewis-92a4a2225"
-    ]
-  }
-  </script>
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to content</a>
-
-<header class="sidebar">
-  <a class="sidebar-name" href="#hero">Clay Lewis</a>
-  <nav class="sidebar-nav" aria-label="Site sections">
-    <a href="#work">Work</a>
-    <a href="#compositions">Compositions</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<main id="main">
-
-  <!-- ═══════════════════════════════ HERO ═══════════════════════ -->
-  <section id="hero" aria-label="Introduction" class="hero">
-    <img class="hero-img" src="assets/studio-hero.jpg" alt="Clay Lewis at the mixing console" fetchpriority="high">
-    <div class="hero-vignette"></div>
-    <div class="hero-scrim-left"></div>
-    <div class="hero-scrim-bottom"></div>
-    <div class="hero-id">
-      <h1 id="heroName" class="hero-name">Clay Lewis</h1>
-      <p class="hero-credential"><span>Film &amp; Media Composer</span><span>USC Screen Scoring MFA</span></p>
-    </div>
-    <div class="hero-chevron">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0ece4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-    </div>
-  </section>
-
-  <!-- ═══════════════ FEATURED PIECE ══════════════════════════════
-       EDIT HERE to swap the featured work: change the iframe src
-       (Vimeo video ID), title attribute, and the metadata below. -->
-  <section id="work" aria-label="Featured work" class="featured">
-    <div class="featured-inner">
-      <div class="video-frame">
-        <iframe src="https://player.vimeo.com/video/1207579512?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=0&amp;color=c8a96e&amp;title=0&amp;byline=0&amp;portrait=0" title="Harmony Rescore — Clay Lewis, Composer" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  <header class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div>
+        <a href="#home" class="sidebar-name">Clay Lewis</a>
+        <p class="sidebar-subtitle">Film & Media Composer</p>
       </div>
-      <div class="project-info">
-        <h2 class="project-title">Harmony Rescore</h2>
-        <p class="project-meta">Rescore <span class="sep">·</span> Original film by ESMA <span class="sep">·</span> Composer <span class="sep">·</span> [Year]</p>
-      </div>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
     </div>
-  </section>
+    <nav class="sidebar-nav" aria-label="Site sections">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#listen" class="nav-link">Listen</a>
+      <a href="#watch" class="nav-link">Watch</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
 
-  <!-- ═══════════════ WORK ════════════════════════════════════════
-       EDIT HERE to add a project: copy an entire <article> block,
-       change data-vimeo-id, data-title, the facade aria-label, the
-       title, and the metadata line. Order = best work first. -->
-  <section aria-label="Film and scoring projects" class="work">
-    <div class="section-inner">
-      <h2 class="section-heading">Work</h2>
-      <div class="work-list">
-
-        <article class="project" data-reveal>
-          <button class="facade" data-vimeo-id="1208304263" data-title="Oryctes Rescore — Clay Lewis, Composer" aria-label="Play Oryctes Rescore">
-            <span class="facade-circle">
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-            </span>
-            <span class="facade-label">Watch</span>
-          </button>
-          <div class="project-info">
-            <h3 class="project-title">Oryctes Rescore</h3>
-            <p class="project-meta">Rescore <span class="sep">·</span> Dir. [Director] <span class="sep">·</span> Composer <span class="sep">·</span> [Year]</p>
-          </div>
-        </article>
-
-        <article class="project" data-reveal>
-          <button class="facade" data-vimeo-id="1208304124" data-title="A Second of Sight — Clay Lewis, Composer" aria-label="Play A Second of Sight">
-            <span class="facade-circle">
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-            </span>
-            <span class="facade-label">Watch</span>
-          </button>
-          <div class="project-info">
-            <h3 class="project-title">A Second of Sight</h3>
-            <p class="project-meta">Student Film <span class="sep">·</span> Dir. [Director] <span class="sep">·</span> Composer <span class="sep">·</span> [Year]</p>
-          </div>
-        </article>
-
-        <article class="project" data-reveal>
-          <button class="facade" data-vimeo-id="1208304011" data-title="MIT Compass Course — Clay Lewis, Composer" aria-label="Play MIT Compass Course">
-            <span class="facade-circle">
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-            </span>
-            <span class="facade-label">Watch</span>
-          </button>
-          <div class="project-info">
-            <h3 class="project-title">MIT Compass Course</h3>
-            <p class="project-meta">Documentary <span class="sep">·</span> Dir. [Director] <span class="sep">·</span> Composer <span class="sep">·</span> [Year]</p>
-          </div>
-        </article>
-
+  <main class="content-wrapper">
+    
+    <section id="home" class="section-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1>Clay Lewis</h1>
+        <p class="hero-credentials">USC Screen Scoring MM <span class="sep">|</span> MIT Alumni</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════ COMPOSITIONS ════════════════════════════════
-       EDIT HERE to add a track: copy a .track block, change
-       data-src (mp3 path), data-duration (seconds), the title,
-       the label line, and the duration text. -->
-  <section id="compositions" aria-label="Standalone compositions" class="compositions">
-    <div class="section-inner">
-      <h2 class="section-heading">Compositions</h2>
-      <div class="track-list">
-
-        <div class="track" data-reveal data-src="assets/audio/alas-sanctuary.mp3" data-duration="81">
-          <div class="track-top">
-            <button class="track-btn" aria-label="Play Alas... Sanctuary">
-              <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-              <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
-            </button>
-            <div class="track-info">
-              <span class="track-title">Alas... Sanctuary</span>
-              <span class="track-genre">Action, Fantasy</span>
+    <section id="listen" class="section-padding">
+      <div class="section-inner">
+        <h2 class="section-title">Listen</h2>
+        
+        <div class="audio-panel">
+          <div class="player-main">
+            <div class="now-playing">
+              <h3 id="current-track-title">Alas... Sanctuary</h3>
+              <p id="current-track-genre">Action, Fantasy</p>
             </div>
-            <span class="track-time">1:21</span>
-          </div>
-          <div class="track-seek" role="slider" tabindex="0" aria-label="Seek — Alas... Sanctuary" aria-valuemin="0" aria-valuemax="81" aria-valuenow="0" aria-valuetext="0:00 of 1:21">
-            <div class="seek-rail"></div>
-            <div class="seek-fill"></div>
-            <div class="seek-handle"></div>
-          </div>
-        </div>
+            
+            <div class="player-controls">
+              <div class="controls-primary">
+                <button id="play-pause-btn" aria-label="Play Track">
+                  <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  <svg class="icon-pause" viewBox="0 0 24 24" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                
+                <div class="volume-control">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                  <div class="volume-slider-container">
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+                  </div>
+                </div>
+              </div>
 
-        <div class="track" data-reveal data-src="assets/audio/reminiscing-in-f.mp3" data-duration="48">
-          <div class="track-top">
-            <button class="track-btn" aria-label="Play Reminiscing in F">
-              <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-              <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
-            </button>
-            <div class="track-info">
-              <span class="track-title">Reminiscing in F</span>
-              <span class="track-genre">Orchestra, Family</span>
+              <div class="progress-container">
+                <span id="time-current">0:00</span>
+                <div class="waveform-wrapper" id="waveform-wrapper">
+                  <canvas id="waveform-canvas"></canvas>
+                  <div class="waveform-hover-line" id="waveform-hover-line"></div>
+                  <div class="waveform-hover-time" id="waveform-hover-time"></div>
+                </div>
+                <span id="time-total">1:21</span>
+              </div>
             </div>
-            <span class="track-time">0:47</span>
           </div>
-          <div class="track-seek" role="slider" tabindex="0" aria-label="Seek — Reminiscing in F" aria-valuemin="0" aria-valuemax="48" aria-valuenow="0" aria-valuetext="0:00 of 0:47">
-            <div class="seek-rail"></div>
-            <div class="seek-fill"></div>
-            <div class="seek-handle"></div>
-          </div>
-        </div>
-
-        <div class="track" data-reveal data-src="assets/audio/stank.mp3" data-duration="46">
-          <div class="track-top">
-            <button class="track-btn" aria-label="Play Stank">
-              <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-              <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
-            </button>
-            <div class="track-info">
-              <span class="track-title">Stank</span>
-              <span class="track-genre">Hip-Hop, Funk</span>
+          
+          <div class="tracklist" id="tracklist">
             </div>
-            <span class="track-time">0:45</span>
-          </div>
-          <div class="track-seek" role="slider" tabindex="0" aria-label="Seek — Stank" aria-valuemin="0" aria-valuemax="46" aria-valuenow="0" aria-valuetext="0:00 of 0:45">
-            <div class="seek-rail"></div>
-            <div class="seek-fill"></div>
-            <div class="seek-handle"></div>
-          </div>
-        </div>
-
-        <div class="track" data-reveal data-src="assets/audio/capgras.mp3" data-duration="76">
-          <div class="track-top">
-            <button class="track-btn" aria-label="Play Capgras">
-              <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-              <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
-            </button>
-            <div class="track-info">
-              <span class="track-title">Capgras</span>
-              <span class="track-genre">Thriller, Horror</span>
-            </div>
-            <span class="track-time">1:16</span>
-          </div>
-          <div class="track-seek" role="slider" tabindex="0" aria-label="Seek — Capgras" aria-valuemin="0" aria-valuemax="76" aria-valuenow="0" aria-valuetext="0:00 of 1:16">
-            <div class="seek-rail"></div>
-            <div class="seek-fill"></div>
-            <div class="seek-handle"></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ ABOUT ═══════════════════════════════════════
-       EDIT HERE to update the bio: change the paragraph text. -->
-  <section id="about" aria-label="About Clay" class="about">
-    <div class="section-inner">
-      <h2 class="section-heading">About</h2>
-      <div class="about-body" data-reveal>
-        <p class="about-text">I'm Clay — a composer working in film and media, currently earning my Screen Scoring MFA at USC in Los Angeles. Before that I studied music and computer science at MIT, where I wrote for orchestras, chamber ensembles, and student films, and picked up a few composition awards along the way. What draws me to scoring is the moment a scene starts telling you what it needs — I like writing music that serves the story first. I'm always looking for directors and collaborators to build something with. If that's you, say hello.</p>
-        <img class="about-photo" src="assets/headshot-web.jpg" alt="Clay Lewis" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ CONTACT ═════════════════════════════════════
-       EDIT HERE to update email, location, or social links. -->
-  <section id="contact" aria-label="Contact" class="contact">
-    <div class="section-inner">
-      <h2 class="section-heading">Contact</h2>
-      <div class="contact-body" data-reveal>
-        <a class="contact-email" href="mailto:celscoring@gmail.com">celscoring@gmail.com</a>
-        <span class="contact-location">Los Angeles, CA</span>
-        <div class="contact-socials">
-          <a href="https://www.youtube.com/@Composer_Clay" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
-          </a>
-          <a href="https://www.instagram.com/_claylewis_/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/clay-lewis-92a4a2225" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
-          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="site-footer">© 2026 Clay Lewis</footer>
+    <section id="watch" class="section-padding">
+      <div class="section-inner">
+        <h2 class="section-title">Watch</h2>
+        
+        <div class="video-panel">
+          <div class="carousel-container">
+            <button id="carousel-prev" class="carousel-btn" aria-label="Previous Video">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            
+            <div class="video-wrapper">
+              <iframe id="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"></iframe>
+            </div>
+            
+            <button id="carousel-next" class="carousel-btn" aria-label="Next Video">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
+          
+          <div class="video-info">
+            <h3 id="video-title">Loading...</h3>
+            <p id="video-meta">...</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</main>
+    <section id="about" class="section-padding">
+      <div class="section-inner">
+        <h2 class="section-title">About</h2>
+        <div class="about-panel">
+          <img src="assets/headshot-web.jpg" alt="Clay Lewis" class="about-photo">
+          <div class="about-text">
+            <p>I'm Clay — a composer working in film and media, currently earning my Screen Scoring MFA at USC in Los Angeles. Before that I studied music and computer science at MIT, where I wrote for orchestras, chamber ensembles, and student films, and picked up a few composition awards along the way.</p>
+            <p>What draws me to scoring is the moment a scene starts telling you what it needs — I like writing music that serves the story first. I'm always looking for directors and collaborators to build something with. If that's you, say hello.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="contact" class="section-padding">
+      <div class="section-inner">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-panel">
+          <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p>Ready to build something together? Drop me a message below or reach out directly at <a href="mailto:celscoring@gmail.com" class="text-accent">celscoring@gmail.com</a>.</p>
+            <p class="location-tag">Philadelphia, PA | Los Angeles, CA</p>
+            
+            <div class="social-links">
+              <a href="https://www.youtube.com/@Composer_Clay" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+              <a href="https://www.instagram.com/_claylewis_/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+              <a href="https://www.linkedin.com/in/clay-lewis-92a4a2225" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            </div>
+          </div>
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="0c30e109-32f8-462c-9fe1-dce3a1bc2bb6">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>© 2026 Clay Lewis</p>
+    </footer>
+
+  </main>
 </body>
 </html>
