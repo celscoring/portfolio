@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 1. AUDIO PLAYER LOGIC ── */
   const tracks = [
-    { title: "Alas... Sanctuary", genre: "Action, Fantasy", file: "assets/audio/alas-sanctuary.mp3" },
-    { title: "Reminiscing in F", genre: "Orchestra, Family", file: "assets/audio/reminiscing-in-f.mp3" },
+    { title: "Alas... Sanctuary", genre: "Action, Orchestral", file: "assets/audio/alas-sanctuary.mp3" },
+    { title: "Reminiscing in F", genre: "Intimate, Family", file: "assets/audio/reminiscing-in-f.mp3" },
     { title: "Stank", genre: "Hip-Hop, Funk", file: "assets/audio/stank.mp3" },
     { title: "Capgras", genre: "Thriller, Horror", file: "assets/audio/capgras.mp3" }
   ];
@@ -231,12 +231,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', renderWaveform);
 
   if (volumeSlider && audio) {
-      // Dynamic track fill logic via CSS variable updating on input
       volumeSlider.addEventListener('input', (e) => {
         audio.volume = e.target.value;
         volumeSlider.style.setProperty('--vol-pct', `${e.target.value * 100}%`);
       });
-      // Initialize the track fill to the default volume (100%)
       volumeSlider.style.setProperty('--vol-pct', `${volumeSlider.value * 100}%`);
   }
 
@@ -246,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn("Initial track load bypassed", e);
   }
 
-  /* ── 2. VIDEO CAROUSEL (NATIVE PLAYERS ONLY) ── */
+  /* ── 2. VIDEO CAROUSEL (CACHED DOM PLAYERS) ── */
   const videos = [
     { 
       id: "Z6DG4o8NN6A", 
@@ -263,43 +261,84 @@ document.addEventListener('DOMContentLoaded', () => {
     { 
       id: "QkbwtoR4350", 
       title: "MIT Compass Course", 
-      meta: "Original Score · Produced by MIT",
+      meta: "Original Score · Documentary short by MIT",
       type: "youtube"
     },
     { 
       id: "1Lti_bDdyG_dERQzBR-FXDtv-Ciqw3XNN", 
       title: "A Second of Sight", 
-      meta: "Original Score · Dir. Reuben Fuchs", 
+      meta: "Original Score · Student film by Reuben Fuchs", 
       type: "gdrive"
     }
   ];
 
   let currentVideoIndex = 0;
-  const iframeEl = document.getElementById('video-iframe');
+  const videoWrapper = document.getElementById('video-wrapper');
   const videoTitleEl = document.getElementById('video-title');
   const videoMetaEl = document.getElementById('video-meta');
   const prevBtn = document.getElementById('carousel-prev');
   const nextBtn = document.getElementById('carousel-next');
 
-  // Immediately load the correct iframe for the video type
-  const loadVideo = (index) => {
-    currentVideoIndex = index;
-    const vid = videos[currentVideoIndex];
+  // Architecture: Build DOM structure for instant switching
+  const slides = videos.map((vid, i) => {
+    const slide = document.createElement('div');
+    slide.className = `video-slide ${i === 0 ? 'active' : ''}`;
     
-    // Clear iframe briefly to force a clean load and pause previous video
-    if (iframeEl) {
-        iframeEl.src = '';
-        if (vid.type === 'gdrive') {
-            iframeEl.src = `https://drive.google.com/file/d/${vid.id}/preview`;
-        } else {
-            iframeEl.src = `https://www.youtube.com/embed/${vid.id}?controls=1&modestbranding=1&rel=0&playsinline=1`;
-        }
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen');
+    
+    // Construct exact embed URLs
+    const srcUrl = vid.type === 'gdrive' 
+      ? `https://drive.google.com/file/d/${vid.id}/preview`
+      : `https://www.youtube.com/embed/${vid.id}?enablejsapi=1&controls=1&modestbranding=1&rel=0&playsinline=1`;
+
+    // Only load the first video immediately to keep initial page load fast
+    if (i === 0) {
+        iframe.src = srcUrl;
+    } else {
+        iframe.dataset.src = srcUrl;
     }
     
-    if (videoTitleEl) videoTitleEl.textContent = vid.title;
-    if (videoMetaEl) videoMetaEl.textContent = vid.meta;
+    slide.appendChild(iframe);
+    if (videoWrapper) videoWrapper.appendChild(slide);
     
-    // Auto-pause the audio track if the user swaps videos
+    return { slide, iframe, vid };
+  });
+
+  // Background Preloading: Load remaining iframes gracefully after 2 seconds
+  setTimeout(() => {
+    slides.forEach((s, i) => {
+      if (i !== 0 && !s.iframe.src) {
+          s.iframe.src = s.iframe.dataset.src;
+      }
+    });
+  }, 2000);
+
+  const loadVideo = (index) => {
+    const prevSlide = slides[currentVideoIndex];
+    
+    // Safely pause audio on the outgoing video without destroying its iframe
+    if (prevSlide.vid.type === 'youtube' && prevSlide.iframe.contentWindow) {
+        prevSlide.iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    } else if (prevSlide.vid.type === 'gdrive') {
+        // GDrive has no API, refreshing the src is the only way to stop hidden playback
+        prevSlide.iframe.src = prevSlide.iframe.src; 
+    }
+    prevSlide.slide.classList.remove('active');
+
+    // Switch to new slide instantly via CSS fade
+    currentVideoIndex = index;
+    const newSlide = slides[currentVideoIndex];
+    
+    // Failsafe: if the user clicked incredibly fast before the preloader caught up
+    if (!newSlide.iframe.src) newSlide.iframe.src = newSlide.iframe.dataset.src;
+    
+    newSlide.slide.classList.add('active');
+    
+    if (videoTitleEl) videoTitleEl.textContent = newSlide.vid.title;
+    if (videoMetaEl) videoMetaEl.textContent = newSlide.vid.meta;
+    
+    // Auto-pause your master audio track if swapping videos
     if (isPlaying && audio) togglePlay();
   };
 
@@ -317,10 +356,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
+  // Initialize Text
   try {
-      loadVideo(0);
+      if (videoTitleEl) videoTitleEl.textContent = videos[0].title;
+      if (videoMetaEl) videoMetaEl.textContent = videos[0].meta;
   } catch (e) {
-      console.warn("Initial video load bypassed", e);
+      console.warn("Video initialization skipped");
   }
 
   /* ── 3. SCROLL SPY FOR NAVIGATION ── */

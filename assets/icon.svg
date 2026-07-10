@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+      .playfair {
+        font-family: 'Playfair Display', serif;
+      }
+    </style>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="#191124"/>
+  <text x="32" y="47" class="playfair" font-size="44" fill="#6896cc" text-anchor="middle">C</text>
+</svg>
