@@ -59,7 +59,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; margin: 0; }
 }
 
 .sidebar-header { display: flex; flex-direction: column; }
-.sidebar-name { font-family: var(--font-display); font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+.sidebar-name { font-family: var(--font-display); font-size: 2rem; display: block; margin-bottom: 0.5rem; margin-left: -0.1em; }
 .sidebar-subtitle { font-size: 0.85rem; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 3rem 0; }
 .mobile-toggle { display: none; background: none; border: none; color: var(--text-main); padding: 0.5rem; cursor: pointer; }
 .mobile-toggle svg { width: 32px; height: 32px; }
@@ -127,6 +127,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; margin: 0; }
   margin-bottom: 1.5rem; 
   margin-left: -5px; 
   text-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  margin-left: -0.1em;
 }
 .hero-credentials { 
   color: var(--accent-blue); 
